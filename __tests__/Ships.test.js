@@ -1,5 +1,6 @@
 const Ship = require('../src/Ship');
 const Port = require('../src/Port');
+const Itinerary = require('../src/Itinerary');
 
 describe('Ship', () => {
   it('can be instantiated', () => {
@@ -13,7 +14,7 @@ describe('Ship', () => {
     expect(ship.currentPort).toBe(venicePort);
   });
 
-  it('has a perious port property initialised to null', () => {
+  it('has a previous port property initialised to null', () => {
     const venicePort = new Port('Venice');
     const ship = new Ship(venicePort);
 
@@ -51,4 +52,9 @@ describe('dock', () => {
   });
 });
 
+/*
+Refactor the Ship test suite so a Ship takes an Itinerary object instead of a Port object. 
+The Itinerary object will have 2 Port objects stored in an array on its ports property.
 
+Refactor the -it can dock at a different port- test so that no argument is passed to ship.dock, 
+and asserts the currentPort to be the next port in the Itinerary instance. The tests will break. */

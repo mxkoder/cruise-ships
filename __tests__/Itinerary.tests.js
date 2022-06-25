@@ -7,10 +7,13 @@ describe('Itinerary', () => {
         expect(new Itinerary()).toBeInstanceOf(Object);
     });
 
-    it('has a port property', () => {
-        const port1 = new Port('Dover');
-        const itinerary = new Itinerary (port1);
+    it('has a port property with an array of ports', () => {
+        const dover = new Port('Dover');
+        const calais = new Port ('Calais')
+        const itinerary = new Itinerary ([dover, calais]);
 
-        expect(itinerary.ports).toBeTruthy();
+        expect(itinerary.ports).toEqual([dover, calais]);
     });
 });
+
+
