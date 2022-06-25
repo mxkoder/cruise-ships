@@ -25,7 +25,7 @@ describe('setSail', () => {
 });
 
 describe('dock', () => {
-  it('changes the value of the currentPort property of the ship to port object the ship has docked at', () => {
+  it('can dock at a different port - changes the value of the currentPort property of the ship to port object the ship has docked at', () => {
     const venicePort = new Port('Venice');
     const splitPort = new Port('Split');
     const ship = new Ship(venicePort);
