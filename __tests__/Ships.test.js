@@ -12,6 +12,13 @@ describe('Ship', () => {
 
     expect(ship.currentPort).toBe(venicePort);
   });
+
+  it('has a perious port property initialised to null', () => {
+    const venicePort = new Port('Venice');
+    const ship = new Ship(venicePort);
+
+    expect(ship.previousPort).toBe(null);
+  });
 });
 
 describe('setSail', () => {
@@ -21,6 +28,15 @@ describe('setSail', () => {
     ship.setSail();
       
     expect(ship.currentPort).toBeFalsy();
+  });
+
+  it('sets the previousPort property on the ship to the curent port', () => {
+    const venicePort = new Port('Venice');
+    const ship = new Ship(venicePort);
+    ship.setSail();
+      
+    expect(ship.previousPort).toBe(venicePort);
+
   });
 });
 
