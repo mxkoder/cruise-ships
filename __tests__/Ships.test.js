@@ -39,14 +39,13 @@ describe('setSail', () => {
     expect(ship.currentPort).toBeFalsy();
   });
 
-  it('sets the previousPort property on the ship to the curent port', () => {
+  it('sets the previousPort property on the ship to the current port', () => {
     const venicePort = new Port('Venice');
     const splitPort = new Port ('Split');
     const itinerary = new Itinerary ([venicePort, splitPort]);
     const ship = new Ship(itinerary);
     ship.setSail();
     
-    expect(ship.currentPort).toBeFalsy();
     expect(ship.previousPort).toBe(venicePort);
   });
 
