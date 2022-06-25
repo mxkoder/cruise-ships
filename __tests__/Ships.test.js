@@ -4,28 +4,36 @@ const Itinerary = require('../src/Itinerary');
 
 describe('Ship', () => {
   it('can be instantiated', () => {
-    expect(new Ship()).toBeInstanceOf(Object);
+    const port = new Port('Dover');
+    const itinerary = new Itinerary([port]);
+    const ship = new Ship(itinerary);
+
+    expect(ship).toBeInstanceOf(Object);
   });
 
   it('has a current port property', () => {
     const venicePort = new Port('Venice');
-    const ship = new Ship(venicePort);
+    const itinerary = new Itinerary ([venicePort]);
+    const ship = new Ship(itinerary);
 
     expect(ship.currentPort).toBe(venicePort);
   });
 
   it('has a previous port property initialised to null', () => {
     const venicePort = new Port('Venice');
-    const ship = new Ship(venicePort);
+    const itinerary = new Itinerary ([venicePort]);
+    const ship = new Ship(itinerary);
 
     expect(ship.previousPort).toBe(null);
   });
 });
 
 describe('setSail', () => {
-  it('changes the currentPort property of Ship to 0 when applied', () => {
+  it('changes the currentPort property of Ship to null when applied', () => {
     const venicePort = new Port('Venice');
-    const ship = new Ship(venicePort);
+    const splitPort = new Port ('Split');
+    const itinerary = new Itinerary ([venicePort, splitPort]);
+    const ship = new Ship(itinerary);
     ship.setSail();
       
     expect(ship.currentPort).toBeFalsy();
@@ -33,28 +41,40 @@ describe('setSail', () => {
 
   it('sets the previousPort property on the ship to the curent port', () => {
     const venicePort = new Port('Venice');
-    const ship = new Ship(venicePort);
+    const splitPort = new Port ('Split');
+    const itinerary = new Itinerary ([venicePort, splitPort]);
+    const ship = new Ship(itinerary);
     ship.setSail();
-      
+    
+    expect(ship.currentPort).toBeFalsy();
     expect(ship.previousPort).toBe(venicePort);
-
   });
+
+  it('can\'t sail further than the last port in it\'s itiniary', () => {
+    const venicePort = new Port('Venice');
+    const splitPort = new Port('Split');
+    const itinerary = new Itinerary ([venicePort, splitPort]);
+    const ship = new Ship(itinerary);
+
+    ship.setSail();
+    ship.dock();
+    
+    expect(() => ship.setSail()).toThrowError('End of itinerary reached');
+  });
+
 });
 
 describe('dock', () => {
   it('can dock at a different port - changes the value of the currentPort property of the ship to port object the ship has docked at', () => {
     const venicePort = new Port('Venice');
     const splitPort = new Port('Split');
-    const ship = new Ship(venicePort);
-    ship.dock(splitPort);
+    const itinerary = new Itinerary ([venicePort, splitPort])
+    const ship = new Ship(itinerary);
+
+    ship.setSail();
+    ship.dock();
       
     expect(ship.currentPort).toBe(splitPort);
   });
 });
 
-/*
-Refactor the Ship test suite so a Ship takes an Itinerary object instead of a Port object. 
-The Itinerary object will have 2 Port objects stored in an array on its ports property.
-
-Refactor the -it can dock at a different port- test so that no argument is passed to ship.dock, 
-and asserts the currentPort to be the next port in the Itinerary instance. The tests will break. */
