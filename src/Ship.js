@@ -3,6 +3,8 @@ class Ship {
     this.itinerary = itinerary;
     this.currentPort = itinerary.ports[0];
     this.previousPort = null;
+
+    this.currentPort.addShip(this);
  
   }
 
@@ -16,12 +18,16 @@ class Ship {
     
     this.previousPort = this.currentPort;
     this.currentPort = null;
+
+    this.previousPort.removeShip(this);
   }
 
   dock () {
     const itinerary = this.itinerary;
     const previousPortIndex = this.itinerary.ports.indexOf(this.previousPort);
     this.currentPort = this.itinerary.ports[previousPortIndex + 1];
+
+    this.currentPort.addShip(this);
   }
 }
 
@@ -35,13 +41,5 @@ module.exports = Ship;
 
 
 
-/*
-function Ship (currentPort) {
-  this.currentPort = currentPort;
-}
 
-Ship.prototype.setSail = function () {
-  this.currentPort = 0;
-}
-*/
 

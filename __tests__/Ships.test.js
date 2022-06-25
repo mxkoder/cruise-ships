@@ -26,6 +26,14 @@ describe('Ship', () => {
 
     expect(ship.previousPort).toBe(null);
   });
+
+  it('adds the ship to the current port\'s ships property on instantiation', () => {
+    const venice = new Port('Venice');
+    const itinerary = new Itinerary ([venice]);
+    const ship = new Ship(itinerary);
+
+    expect(venice.ships).toContain(ship);
+  });
 });
 
 describe('setSail', () => {
@@ -45,8 +53,18 @@ describe('setSail', () => {
     const itinerary = new Itinerary ([venicePort, splitPort]);
     const ship = new Ship(itinerary);
     ship.setSail();
-    
+
     expect(ship.previousPort).toBe(venicePort);
+  });
+
+  it('removes the ship from the ships property of the port it set sail from', () => {
+    const venice = new Port('Venice');
+    const split = new Port ('Split');
+    const itinerary = new Itinerary ([venice, split]);
+    const ship = new Ship(itinerary);
+    ship.setSail();
+
+    expect(venice.ships).not.toContain(ship);
   });
 
   it('can\'t sail further than the last port in it\'s itiniary', () => {
@@ -65,15 +83,16 @@ describe('setSail', () => {
 
 describe('dock', () => {
   it('can dock at a different port - changes the value of the currentPort property of the ship to port object the ship has docked at', () => {
-    const venicePort = new Port('Venice');
-    const splitPort = new Port('Split');
-    const itinerary = new Itinerary ([venicePort, splitPort])
+    const venice = new Port('Venice');
+    const split = new Port('Split');
+    const itinerary = new Itinerary ([venice, split])
     const ship = new Ship(itinerary);
 
     ship.setSail();
     ship.dock();
       
-    expect(ship.currentPort).toBe(splitPort);
+    expect(ship.currentPort).toBe(split);
+    expect(split.ships).toContain(ship);
   });
 });
 
