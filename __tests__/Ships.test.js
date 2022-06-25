@@ -16,7 +16,8 @@ describe('Ship', () => {
 
 describe('setSail', () => {
   it('changes the currentPort property of Ship to 0 when applied', () => {
-    const ship = new Ship('Venice');
+    const venicePort = new Port('Venice');
+    const ship = new Ship(venicePort);
     ship.setSail();
       
     expect(ship.currentPort).toBeFalsy();
