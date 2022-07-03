@@ -1,6 +1,4 @@
 const Itinerary = require('../src/Itinerary');
-const Port = require('../src/Port');
-
 
 describe('Itinerary', () => {
     it('can be instantiated', () => {
@@ -8,11 +6,11 @@ describe('Itinerary', () => {
     });
 
     it('has a port property with an array of ports', () => {
-        const dover = new Port('Dover');
-        const calais = new Port ('Calais')
-        const itinerary = new Itinerary ([dover, calais]);
+        const valencia = {};
+        const palma = {};
+        const itinerary = new Itinerary ([valencia, palma]);
 
-        expect(itinerary.ports).toEqual([dover, calais]);
+        expect(itinerary.ports).toEqual([valencia, palma]);
     });
 });
 
