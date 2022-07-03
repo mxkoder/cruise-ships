@@ -43,6 +43,7 @@ describe('Ship', () => {
     });
 
     describe('setSail', () => {
+
       it('changes the currentPort property of Ship to null when applied', () => {
         expect(ship.currentPort).toBeFalsy();
       });
@@ -64,6 +65,7 @@ describe('Ship', () => {
   
 
     describe('dock', () => {
+      
       it('can dock at a different port - changes the value of the currentPort property of the ship to port object the ship has docked at', () => {
 
         ship.dock();

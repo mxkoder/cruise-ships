@@ -2,45 +2,50 @@ const Ship = require('../src/Ship');
 const Port = require('../src/Port');
 const Itinerary = require('../src/Itinerary');
 
+
+
 describe('Port', () => {
-    it('can be instantiated', () => {
-        expect(new Port()).toBeInstanceOf(Object);
+
+    let port
+
+    beforeEach(() => {
+        port = new Port('Valencia');
     });
 
-    it('has a name property', () => {
-        const port = new Port('Calais');
+    describe('Port constructor function', () => {
+        it('can be instantiated', () => {
+            expect(new Port()).toBeInstanceOf(Object);
+        });
 
-        expect(port.name).toBe('Calais');
+        it('has a name property', () => {
+            expect(port.name).toBe('Valencia');
+        });
+
+        it('has ships property', () => {
+            expect(port.ships).toBeTruthy();
+        });
     });
 
-    it('has ships property', () => {
-        const port = new Port('Calais');
-    
-        expect(port.ships).toBeTruthy();
+    describe('addShip', () => {
+        it('adds a ship to the ships property of the port', () => {
+            const ship = {};
+
+            port.addShip(ship);
+
+            expect(port.ships).toContain(ship);
+        });
     });
-});
 
-describe('addShip', () => {
-    it('adds a ship to the ships property of the port', () => {
-        const port = new Port('Venice');
-        const ship = {};
+    describe('removeShip', () => {
+        it('removes a ship from the ships property of the port', () => {
+            const nymphidia = {};
+            const leakyDuck = {};
 
-        port.addShip(ship);
+            port.addShip(nymphidia);
+            port.addShip(leakyDuck);
+            port.removeShip(nymphidia);
 
-        expect(port.ships).toContain(ship);
-    });
-});
-
-describe('removeShip', () => {
-    it('removes a ship from the ships property of the port', () => {
-        const port = new Port('Venice');
-        const nymphidia = {};
-        const leakyDuck = {};
-
-        port.addShip(nymphidia);
-        port.addShip(leakyDuck);
-        port.removeShip(nymphidia);
-
-        expect(port.ships).toEqual([leakyDuck]);
+            expect(port.ships).toEqual([leakyDuck]);
+        });
     });
 });
