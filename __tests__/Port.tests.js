@@ -24,7 +24,7 @@ describe('Port', () => {
 
     describe('addShip', () => {
         it('adds a ship to the ships property of the port', () => {
-            const ship = {};
+            const ship = jest.fn();
 
             port.addShip(ship);
 
@@ -34,8 +34,8 @@ describe('Port', () => {
 
     describe('removeShip', () => {
         it('removes a ship from the ships property of the port', () => {
-            const nymphidia = {};
-            const leakyDuck = {};
+            const nymphidia = {}; // use jest.fn() ?
+            const leakyDuck = {}; // use jest.fn() ?
 
             port.addShip(nymphidia);
             port.addShip(leakyDuck);
