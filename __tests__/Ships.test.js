@@ -1,5 +1,4 @@
 const Ship = require('../src/Ship');
-const Itinerary = require('../src/Itinerary');
 
 describe('Ship', () => {
 
@@ -15,13 +14,18 @@ describe('Ship', () => {
       removeShip: jest.fn(),
       ships: []
     };
+
     palma = { 
       name: "Palma", 
       addShip: jest.fn(), 
       removeShip: jest.fn(),
       ships: []
     };
-    itinerary = new Itinerary([valencia, palma]);
+
+    itinerary = {
+      ports: [valencia, palma]
+    };
+    
     ship = new Ship(itinerary);
   });
 
