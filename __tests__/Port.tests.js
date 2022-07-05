@@ -34,14 +34,15 @@ describe('Port', () => {
 
     describe('removeShip', () => {
         it('removes a ship from the ships property of the port', () => {
-            const nymphidia = {}; // use jest.fn() ?
-            const leakyDuck = {}; // use jest.fn() ?
+            const nymphidia = jest.fn(); 
+            const leakyDuck = jest.fn(); 
 
-            port.addShip(nymphidia);
-            port.addShip(leakyDuck);
+            port.ships = [nymphidia, leakyDuck];
+            expect(port.ships.length).toBe(2);
+
             port.removeShip(nymphidia);
 
-            expect(port.ships).toEqual([leakyDuck]);
+            expect(port.ships.length).toBe(1);
         });
     });
 });
