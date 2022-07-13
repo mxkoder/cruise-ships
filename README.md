@@ -33,13 +33,14 @@ The ship should now be setup, stay in the node REPL for the next part. The setup
 
 ### Navigating the ship along the itinerary in the node REPL
 The ship object has methods to navigate along the itinerary. 
-4. Run ``ship.currentPort.name;``  - the readout should be the first port in the itinerary ('Valencia' in the example)
-5. Run ``ship.setSail();``
-6. Run ``ship.dock();``
-7. Run ``ship.currentPort.name;`` - the readout should be the next port in the itinerary. 
-8. To see the previous port, run ``ship.previousPort.name``
 
-Example commands:
+1. Run ``ship.currentPort.name;``  - the readout should be the first port in the itinerary ('Valencia' in the example)
+2. Run ``ship.setSail();``
+3. Run ``ship.dock();``
+4. Run ``ship.currentPort.name;`` - the readout should be the next port in the itinerary. 
+5. To see the previous port, run ``ship.previousPort.name``
+Example commands to navigate the ship:
+
 ![node REPL cruise ship navigation](/images/node-REPL-cruise-ship-use.png)
 
 ## Next steps
@@ -52,6 +53,5 @@ The main objective of this project was to learn about basic principles of OOP an
 ## Author
 
 Agnes Beviz
-website: [https://agnesbeviz.co.uk/](https://agnesbeviz.co.uk/)
-twitter: [https://twitter.com/mx_coder_](https://twitter.com/mx_coder_)
-linkedin: [https://www.linkedin.com/in/agnes-beviz/](https://www.linkedin.com/in/agnes-beviz/)
+
+[website](https://agnesbeviz.co.uk/) ｜ [twitter](https://twitter.com/mx_coder_) ｜ [linkedin](https://www.linkedin.com/in/agnes-beviz/)
