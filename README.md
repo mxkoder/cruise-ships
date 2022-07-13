@@ -39,6 +39,7 @@ The ship object has methods to navigate along the itinerary.
 3. Run ``ship.dock();``
 4. Run ``ship.currentPort.name;`` - the readout should be the next port in the itinerary. 
 5. To see the previous port, run ``ship.previousPort.name``
+
 Example commands to navigate the ship:
 
 ![node REPL cruise ship navigation](/images/node-REPL-cruise-ship-use.png)
