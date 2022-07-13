@@ -7,7 +7,7 @@ class Ship {
     this.currentPort.addShip(this);
  
   }
-//test git add
+
   setSail () {
     const itinerary = this.itinerary;
     const currentPortIndex = this.itinerary.ports.indexOf(this.currentPort);
