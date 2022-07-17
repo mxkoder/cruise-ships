@@ -1,7 +1,6 @@
 const Ship = require('../src/Ship');
 
 describe('Ship', () => {
-
   let ship;
   let valencia;
   let palma;
@@ -30,7 +29,6 @@ describe('Ship', () => {
   });
 
   describe('Ship constructor function', () => {
-
     it('can be instantiated', () => {
       expect(ship).toBeInstanceOf(Object);
     });
@@ -48,7 +46,6 @@ describe('Ship', () => {
     });
   });
 
-
   describe('it can set sail and dock', () => {
 
     beforeEach(() => {
@@ -56,7 +53,6 @@ describe('Ship', () => {
     });
 
     describe('setSail', () => {
-
       it('changes the currentPort property of Ship to null when applied', () => {
         expect(ship.currentPort).toBeFalsy();
       });
@@ -75,10 +71,8 @@ describe('Ship', () => {
         expect(() => ship.setSail()).toThrowError('End of itinerary reached');
       });
     });
-  
 
     describe('dock', () => {
-      
       it('can dock at a different port - changes the value of the currentPort property of the ship to port object the ship has docked at', () => {
 
         ship.dock();

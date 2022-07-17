@@ -2,7 +2,7 @@ const Port = require('../src/Port');
 
 describe('Port', () => {
 
-    let port
+    let port;
 
     beforeEach(() => {
         port = new Port('Valencia');

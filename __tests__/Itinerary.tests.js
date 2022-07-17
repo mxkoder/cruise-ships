@@ -13,5 +13,3 @@ describe('Itinerary', () => {
         expect(itinerary.ports).toEqual([valencia, palma]);
     });
 });
-
-

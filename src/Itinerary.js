@@ -4,7 +4,4 @@ class Itinerary {
     }
 }
 
-
-
-
 module.exports = Itinerary;
