@@ -12,7 +12,7 @@ Download and initial setup:
 * Fork the project repository
 * Get the project link, navigate to the local folder where the project should be installed, and run ``git clone`` 
 * Switch to the newly installed project folder and run ``npm install``
-* If the test suite is also needed Jest will need to be installed, e.g. by running ``npm install -D jest``
+* Use command ``npm test`` to run the Jest test suite
 
 ## Running the project
 The Cruise Ships project does not currently have a GUI and can be run locally using the node REPL. 
